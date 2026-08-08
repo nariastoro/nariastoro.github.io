@@ -1,713 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Nestor Arias Toro | Data Engineer & BI Developer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Azure-focused Data Engineer and BI Developer specializing in modern data platforms and analytics." />
-  <style>
-    :root {
-      --primary: #0078d4;
-      --primary-dark: #0a1a2f;
-      --bg: #f5f7fb;
-      --text: #1f2933;
-      --muted: #6b7280;
-      --card-bg: #ffffff;
-      --accent: #00b894;
-      --max-width: 1100px;
-      --radius: 10px;
-      --shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nestor Arias – Data & GenAI Engineer</title>
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0d1117;
+  color: #e6edf3;
+}
 
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+header {
+  text-align: center;
+  padding: 60px 20px;
+}
 
-    a {
-      color: var(--primary);
-      text-decoration: none;
-    }
+h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
 
-    a:hover {
-      text-decoration: underline;
-    }
+h2 {
+  color: #58a6ff;
+  margin-top: 40px;
+}
 
-    header {
-      background: radial-gradient(circle at top left, #0f5fbf, #0a1a2f);
-      color: #fff;
-      padding: 2.5rem 1.5rem 3.5rem;
-    }
+p {
+  font-size: 18px;
+  line-height: 1.6;
+}
 
-    .container {
-      max-width: var(--max-width);
-      margin: 0 auto;
-    }
+.section {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
 
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2rem;
-      gap: 1rem;
-    }
+/* Skills grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
 
-    .nav-logo {
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-      opacity: 0.9;
-    }
+.skill {
+  background: #161b22;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  transition: 0.3s;
+}
 
-    .nav-links a {
-      margin-left: 1.2rem;
-      font-size: 0.9rem;
-      opacity: 0.9;
-    }
+.skill:hover {
+  background: #1f6feb;
+  transform: translateY(-5px);
+}
 
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
-      gap: 2.5rem;
-      align-items: center;
-    }
+/* Accordion */
+.accordion {
+  background: #161b22;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-    .hero-title {
-      font-size: clamp(2rem, 3vw, 2.6rem);
-      font-weight: 700;
-      margin-bottom: 0.75rem;
-    }
+.accordion:hover {
+  background: #1f6feb;
+}
 
-    .hero-subtitle {
-      font-size: 1.05rem;
-      color: #e5e7eb;
-      margin-bottom: 1.5rem;
-      max-width: 32rem;
-    }
-
-    .hero-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .tag {
-      font-size: 0.8rem;
-      padding: 0.3rem 0.7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      opacity: 0.9;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-bottom: 1rem;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.7rem 1.3rem;
-      border-radius: 999px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
-      text-decoration: none;
-    }
-
-    .btn-primary {
-      background: #fff;
-      color: var(--primary-dark);
-      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.25);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 28px rgba(15, 23, 42, 0.35);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.5);
-    }
-
-    .hero-meta {
-      font-size: 0.85rem;
-      color: #cbd5f5;
-    }
-
-    .hero-card {
-      background: rgba(15, 23, 42, 0.6);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      backdrop-filter: blur(10px);
-    }
-
-    .hero-card-title {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #9ca3af;
-      margin-bottom: 0.75rem;
-    }
-
-    .hero-card-metric {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 0.5rem;
-      font-size: 0.9rem;
-    }
-
-    .hero-card-metric span:first-child {
-      color: #e5e7eb;
-    }
-
-    .hero-card-metric span:last-child {
-      color: #a5b4fc;
-      font-weight: 500;
-    }
-
-    main {
-      padding: 2.5rem 1.5rem 3rem;
-    }
-
-    section {
-      margin-bottom: 3rem;
-    }
-
-    .section-title {
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .section-title span {
-      width: 4px;
-      height: 18px;
-      border-radius: 999px;
-      background: var(--primary);
-      display: inline-block;
-    }
-
-    .section-subtitle {
-      font-size: 0.95rem;
-      color: var(--muted);
-      margin-bottom: 1.5rem;
-      max-width: 40rem;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.5rem;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      padding: 1.3rem 1.4rem;
-      box-shadow: var(--shadow);
-    }
-
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 0.4rem;
-    }
-
-    .card-title {
-      font-weight: 600;
-      font-size: 1rem;
-    }
-
-    .card-meta {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.6rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .pill {
-      font-size: 0.75rem;
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      background: #eef2ff;
-      color: #3730a3;
-    }
-
-    ul {
-      list-style: none;
-      margin-top: 0.4rem;
-    }
-
-    ul li {
-      font-size: 0.9rem;
-      margin-bottom: 0.3rem;
-      position: relative;
-      padding-left: 1.1rem;
-    }
-
-    ul li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: var(--primary);
-      font-size: 1rem;
-      line-height: 1;
-      top: 0.1rem;
-    }
-
-    .skills-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 0.9rem;
-    }
-
-    .skills-category-title {
-      font-weight: 600;
-      font-size: 0.95rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .skills-items {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    .timeline-item {
-      margin-bottom: 1rem;
-    }
-
-    .timeline-title {
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    .timeline-meta {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-bottom: 0.2rem;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
-      gap: 1.5rem;
-      align-items: center;
-    }
-
-    .contact-details p {
-      font-size: 0.95rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .contact-details strong {
-      font-weight: 600;
-    }
-
-    .contact-highlight {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-top: 0.6rem;
-    }
-
-    footer {
-      padding: 1.5rem;
-      text-align: center;
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .nav-links {
-        display: flex;
-        flex-wrap: wrap;
-      }
-      .grid-2 {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+.panel {
+  padding: 0 15px;
+  display: none;
+  overflow: hidden;
+  background: #0d1117;
+  border-left: 2px solid #58a6ff;
+  margin-bottom: 20px;
+}
+</style>
 </head>
+
 <body>
-  <header id="top">
-    <div class="container">
-      <nav class="nav">
-        <div class="nav-logo">NESTOR ARIAS TORO</div>
-        <div class="nav-links">
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#experience">Experience</a>
-          <a href="#projects">Projects</a>
-          <a href="#education">Education</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </nav>
 
-      <div class="hero">
-        <div>
-          <h1 class="hero-title">Data Engineer & BI Developer<br />Azure Analytics Specialist</h1>
-          <p class="hero-subtitle">
-            I design and build modern data platforms on Azure—turning raw data into reliable, actionable intelligence
-            for decision‑makers.
-          </p>
+<header>
+  <h1>Nestor Arias</h1>
+  <p>BI & Data Engineering Lead · Emerging GenAI/ML Engineer</p>
+  <p>Abu Dhabi, UAE · <a href="mailto:nariastoro@gmail.com" style="color:#58a6ff;">nariastoro@gmail.com</a></p>
+  <p><a href="https://www.linkedin.com/in/nariastoro/" style="color:#58a6ff;">LinkedIn Profile</a></p>
+</header>
 
-          <div class="hero-tags">
-            <span class="tag">Azure Data Factory</span>
-            <span class="tag">Power BI</span>
-            <span class="tag">SQL Server BI</span>
-            <span class="tag">Data Modeling</span>
-            <span class="tag">Abu Dhabi · UAE</span>
-          </div>
+<div class="section">
+  <h2>About Me</h2>
+  <p>
+    I am a BI & Data Engineering Lead with 15+ years of experience designing data warehouses,
+    semantic models, ETL/ELT pipelines, dashboards, and cloud analytics solutions for global organizations.
+    My background includes Azure Synapse, ADF, Power BI, SQL, Python, and automation, building scalable
+    data platforms that support critical business decisions.
+  </p>
+  <p>
+    I am currently transitioning into GenAI/ML Engineering, expanding my skills in LLMs, Agentic AI,
+    prompt engineering, Python for AI, and modern Data Science workflows. My goal is to combine my strong
+    data engineering foundation with intelligent automation and AI-driven analytics.
+  </p>
+</div>
 
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="YOUR-CV-LINK.pdf" target="_blank" rel="noopener">
-              Download CV
-            </a>
-            <a class="btn btn-outline" href="#projects">
-              View Portfolio
-            </a>
-            <a class="btn btn-outline" href="https://www.linkedin.com/in/nariastoro" target="_blank" rel="noopener">
-              LinkedIn Profile
-            </a>
-          </div>
+<div class="section">
+  <h2>Focus Areas</h2>
+  <div class="skills-grid">
+    <div class="skill">GenAI & LLMs</div>
+    <div class="skill">Agentic AI</div>
+    <div class="skill">ML Fundamentals</div>
+    <div class="skill">Azure Data Engineering</div>
+    <div class="skill">Semantic Modeling</div>
+    <div class="skill">Python Automation</div>
+    <div class="skill">Cloud Analytics</div>
+  </div>
+</div>
 
-          <p class="hero-meta">
-            International experience across LATAM, UK, and UAE · Focused on scalable, production‑grade analytics solutions.
-          </p>
-        </div>
+<div class="section">
+  <h2>Tech Stack</h2>
+  <div class="skills-grid">
+    <div class="skill">Azure Synapse</div>
+    <div class="skill">Azure Data Factory</div>
+    <div class="skill">Azure SQL</div>
+    <div class="skill">Azure Storage</div>
+    <div class="skill">Azure Databricks</div>
+    <div class="skill">Azure Fabric</div>
+    <div class="skill">AWS Redshift</div>
+    <div class="skill">Google BigQuery</div>
+    <div class="skill">Power BI</div>
+    <div class="skill">Tableau</div>
+    <div class="skill">Grafana</div>
+    <div class="skill">OpenSearch</div>
+    <div class="skill">ElasticSearch</div>
+    <div class="skill">Python</div>
+    <div class="skill">PowerShell</div>
+    <div class="skill">Git</div>
+    <div class="skill">CI/CD</div>
+    <div class="skill">REST APIs</div>
+    <div class="skill">Docker</div>
+    <div class="skill">Kubernetes (conceptual)</div>
+    <div class="skill">LLMs</div>
+    <div class="skill">RAG Pipelines</div>
+    <div class="skill">Embeddings</div>
+    <div class="skill">Agentic AI</div>
+    <div class="skill">Data Modeling</div>
+    <div class="skill">Semantic Models</div>
+    <div class="skill">Delta Lake</div>
+    <div class="skill">Parquet</div>
+  </div>
+</div>
 
-        <aside class="hero-card">
-          <div class="hero-card-title">Profile Snapshot</div>
-          <div class="hero-card-metric">
-            <span>Primary Role</span>
-            <span>Data Engineer / BI Developer</span>
-          </div>
-          <div class="hero-card-metric">
-            <span>Cloud Focus</span>
-            <span>Microsoft Azure</span>
-          </div>
-          <div class="hero-card-metric">
-            <span>Key Tools</span>
-            <span>ADF · Synapse · Power BI · SQL</span>
-          </div>
-          <div class="hero-card-metric">
-            <span>Location</span>
-            <span>Abu Dhabi, UAE</span>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </header>
 
-  <main>
-    <div class="container">
-      <!-- About -->
-      <section id="about">
-        <h2 class="section-title"><span></span>About</h2>
-        <p class="section-subtitle">
-          I’m an Electronic Engineer and BI Developer with advanced training in business and analytics. Over the last
-          years I’ve worked across Colombia, the UK, and the UAE, building data solutions that connect engineering
-          rigor with business impact.
-        </p>
-        <div class="grid-2">
-          <div>
-            <p>
-              My core focus is designing and implementing Azure‑based data platforms: ingestion, transformation,
-              modeling, and visualization. I enjoy working end‑to‑end—from understanding stakeholder requirements to
-              delivering dashboards and data products that leaders actually use.
-            </p>
-            <p>
-              I’m comfortable collaborating with technical and non‑technical teams, translating business questions into
-              data models, KPIs, and automated pipelines that scale.
-            </p>
-          </div>
-          <div>
-            <div class="card">
-              <div class="card-header">
-                <div class="card-title">Quick facts</div>
-              </div>
-              <ul>
-                <li>Strong experience with Azure Data Factory, Synapse, Databricks, and Power BI.</li>
-                <li>Background in Electronic Engineering, MBA, and advanced analytics programs.</li>
-                <li>Fluent in Spanish and English; experienced in multicultural environments.</li>
-                <li>Comfortable in both hands‑on engineering and BI/analytics roles.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <!-- Skills -->
-      <section id="skills">
-        <h2 class="section-title"><span></span>Skills & Tech Stack</h2>
-        <p class="section-subtitle">
-          A selection of the tools and technologies I use most frequently in data engineering and business intelligence
-          projects.
-        </p>
-        <div class="skills-list">
-          <div class="card">
-            <div class="skills-category-title">Data Engineering</div>
-            <div class="skills-items">
-              Azure Data Factory, Azure Synapse, Azure Databricks, Azure Storage, ETL/ELT, Data Pipelines, Orchestration
-            </div>
-          </div>
-          <div class="card">
-            <div class="skills-category-title">Business Intelligence</div>
-            <div class="skills-items">
-              Power BI (DAX, modeling, governance), SQL Server BI Stack (SSIS, SSAS, SSRS), KPI design, dashboarding
-            </div>
-          </div>
-          <div class="card">
-            <div class="skills-category-title">Data Modeling & Databases</div>
-            <div class="skills-items">
-              Dimensional modeling (Kimball), relational modeling, data warehousing, performance tuning, SQL (advanced)
-            </div>
-          </div>
-          <div class="card">
-            <div class="skills-category-title">Programming & Analytics</div>
-            <div class="skills-items">
-              SQL, Python, Spark, basic ML for BI scenarios, automation scripts, data quality checks
-            </div>
-          </div>
-          <div class="card">
-            <div class="skills-category-title">Cloud & DevOps</div>
-            <div class="skills-items">
-              Azure DevOps, CI/CD for data pipelines, Git, environment management, basic infrastructure‑as‑code concepts
-            </div>
-          </div>
-          <div class="card">
-            <div class="skills-category-title">Soft Skills</div>
-            <div class="skills-items">
-              Stakeholder communication, requirements gathering, documentation, mentoring, cross‑functional collaboration
-            </div>
-          </div>
-        </div>
-      </section>
+<!-- Accordion Section -->
+<div class="section">
+  <h2>Experience</h2>
 
-      <!-- Experience -->
-      <section id="experience">
-        <h2 class="section-title"><span></span>Experience</h2>
-        <p class="section-subtitle">
-          Roles focused on building and maintaining data platforms, BI solutions, and analytics capabilities in
-          enterprise environments.
-        </p>
-        <div class="grid-2">
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title">Data Engineer / BI Developer</div>
-              <div class="card-meta">Abu Dhabi · UAE</div>
-            </div>
-            <div class="pill-row">
-              <span class="pill">Azure</span>
-              <span class="pill">Power BI</span>
-              <span class="pill">Data Pipelines</span>
-            </div>
-            <ul>
-              <li>Designed and maintained Azure‑based data pipelines feeding enterprise reporting and analytics.</li>
-              <li>Developed Power BI models and dashboards used by leadership for operational and strategic decisions.</li>
-              <li>Improved data refresh performance and reliability through optimized ETL/ELT processes.</li>
-              <li>Collaborated with business stakeholders to define KPIs and translate them into robust data models.</li>
-            </ul>
-          </div>
+  <div class="accordion">Presight — Business Intelligence Specialist (2025–Present)</div>
+  <div class="panel">
+    <p>- Fabric Warehouse dashboards<br>
+       - Semantic model optimization<br>
+       - Python automation<br>
+       - ElasticSearch indexing pipelines<br>
+       - Performance and accessibility improvements</p>
+  </div>
 
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title">BI Developer / Data Analyst</div>
-              <div class="card-meta">Colombia · UK · Remote</div>
-            </div>
-            <div class="pill-row">
-              <span class="pill">SQL Server BI</span>
-              <span class="pill">Reporting</span>
-              <span class="pill">Stakeholder Management</span>
-            </div>
-            <ul>
-              <li>Built and maintained SSIS packages, SSAS models, and SSRS reports for enterprise BI environments.</li>
-              <li>Created dashboards and self‑service BI solutions to support finance, operations, and management teams.</li>
-              <li>Worked closely with business users to understand requirements and deliver actionable insights.</li>
-              <li>Led data quality and validation efforts to ensure trust in reporting outputs.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+  <div class="accordion">EPAM Systems — Senior Software Engineer (2022–2025)</div>
+  <div class="panel">
+    <p>- Azure Lakehouse architecture<br>
+       - Synapse automation (PowerShell + Webhooks)<br>
+       - ADF pipelines for CRM & parquet<br>
+       - Grafana + OpenSearch observability</p>
+  </div>
 
-      <!-- Projects -->
-      <section id="projects">
-        <h2 class="section-title"><span></span>Selected Projects</h2>
-        <p class="section-subtitle">
-          A few representative examples of the type of work I do. Details can be adapted to respect confidentiality
-          while still showing your technical depth.
-        </p>
-        <div class="grid-2">
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title">Enterprise Azure Data Platform</div>
-              <div class="card-meta">Azure Data Factory · Synapse · Power BI</div>
-            </div>
-            <ul>
-              <li>Designed an end‑to‑end data platform ingesting data from multiple operational systems into Azure.</li>
-              <li>Implemented ADF pipelines for ingestion and transformation, feeding curated layers in Synapse.</li>
-              <li>Exposed trusted data models to Power BI for executive and operational reporting.</li>
-            </ul>
-          </div>
+  <div class="accordion">Schlumberger — Full Stack BI Developer (2021–2022)</div>
+  <div class="panel">
+    <p>- AAS Tabular models<br>
+       - Power BI dashboards<br>
+       - ADF ETL workflows</p>
+  </div>
 
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title">Executive KPI Dashboard Suite</div>
-              <div class="card-meta">Power BI · DAX · Data Modeling</div>
-            </div>
-            <ul>
-              <li>Developed a suite of Power BI dashboards for C‑level stakeholders to monitor key business KPIs.</li>
-              <li>Designed semantic models with role‑level security and governed datasets for reuse.</li>
-              <li>Reduced manual reporting effort and improved visibility into performance across regions.</li>
-            </ul>
-          </div>
+  <div class="accordion">Globant — Power BI Technical Lead (2019–2021)</div>
+  <div class="panel">
+    <p>- Team scaling (4 → 30+)<br>
+       - Enterprise Power BI solutions<br>
+       - Azure SQL DW<br>
+       - Databricks analytics</p>
+  </div>
+</div>
 
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title">Legacy BI to Azure Migration</div>
-              <div class="card-meta">SSIS · Azure · Modernization</div>
-            </div>
-            <ul>
-              <li>Migrated critical ETL processes from on‑prem SSIS to Azure Data Factory.</li>
-              <li>Refactored legacy logic into modular, maintainable pipelines with monitoring and alerting.</li>
-              <li>Improved scalability and reduced infrastructure maintenance overhead.</li>
-            </ul>
-          </div>
+<div class="section">
+  <h2>Education</h2>
 
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title">Analytics for Business Programs</div>
-              <div class="card-meta">Machine Learning for BI · Advanced Analytics</div>
-            </div>
-            <ul>
-              <li>Applied ML and advanced analytics concepts from formal training to BI use cases.</li>
-              <li>Prototyped models to forecast KPIs and identify patterns in operational data.</li>
-              <li>Integrated insights into dashboards to support data‑driven decision‑making.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+  <div class="accordion">View Education</div>
+  <div class="panel">
+    <p>🎓 Generative AI & Agentic AI — Boston Institute of Analytics (2026)</p>
+    <p>🎓 Artificial Intelligence — UT Austin (2022)</p>
+    <p>🎓 Visual Analytics & Big Data — UNIR (2017–2018)</p>
+    <p>🎓 MBA — University of Chester (2013–2014)</p>
+    <p>🎓 Electronic Engineering — Universidad El Bosque (2002–2008)</p>
+  </div>
+</div>
 
-      <!-- Education -->
-      <section id="education">
-        <h2 class="section-title"><span></span>Education & Certifications</h2>
-        <div class="grid-2">
-          <div>
-            <div class="timeline-item">
-              <div class="timeline-title">Master’s & MBA Studies</div>
-              <div class="timeline-meta">Business & Analytics · International Programs</div>
-              <p>
-                Advanced training combining business, analytics, and technology—strengthening the bridge between
-                technical solutions and strategic decision‑making.
-              </p>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-title">Electronic Engineering</div>
-              <div class="timeline-meta">Undergraduate Degree</div>
-              <p>
-                Solid foundation in engineering, systems thinking, and problem‑solving, later focused on data and
-                analytics.
-              </p>
-            </div>
-          </div>
-          <div>
-            <div class="timeline-item">
-              <div class="timeline-title">Key Certifications</div>
-              <div class="timeline-meta">Selected</div>
-              <ul>
-                <li>SQL Server BI Development & Maintenance.</li>
-                <li>Analyzing and Visualizing Data with Power BI.</li>
-                <li>Machine Learning for Business Intelligence.</li>
-                <li>Additional Azure and analytics‑related training programs.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+<div class="section">
+  <h2>Certifications</h2>
 
-      <!-- Contact -->
-      <section id="contact">
-        <h2 class="section-title"><span></span>Contact</h2>
-        <div class="contact-grid">
-          <div class="contact-details">
-            <p>
-              <strong>Let’s talk about data.</strong> I’m open to roles and projects involving data engineering, BI,
-              and Azure‑based analytics platforms.
-            </p>
-            <p><strong>Email:</strong> <a href="mailto:YOUR.EMAIL@domain.com">YOUR.EMAIL@domain.com</a></p>
-            <p>
-              <strong>LinkedIn:</strong>
-              <a href="https://www.linkedin.com/in/nariastoro" target="_blank" rel="noopener">
-                linkedin.com/in/nariastoro
-              </a>
-            </p>
-            <p class="contact-highlight">
-              Optionally, you can add a Calendly link or WhatsApp Business contact here for quick calls with recruiters
-              and clients.
-            </p>
-          </div>
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title">Based in Abu Dhabi</div>
-              <div class="card-meta">Working across UAE & remote</div>
-            </div>
-            <p style="font-size:0.9rem;">
-              Comfortable working on‑site in Abu Dhabi or Dubai, as well as collaborating with international teams
-              remotely across time zones.
-            </p>
-          </div>
-        </div>
-      </section>
-    </div>
-  </main>
+  <div class="accordion">View Certifications</div>
+  <div class="panel">
+    <p>SQL Server 2008 BI Development</p>
+    <p>Analyzing & Visualizing Data with Power BI</p>
+    <p>Machine Learning for Business Intelligence</p>
+  </div>
+</div>
 
-    <footer>
-      © <span id="year"></span> Nestor Arias Toro · Data Engineer & BI Developer
-    </footer>
+<footer>
+  © 2026 Nestor Arias — Data & GenAI Engineer
+</footer>
 
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
+<script>
+// Accordion logic
+const acc = document.getElementsByClassName("accordion");
+for (let i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function () {
+    this.classList.toggle("active");
+    const panel = this.nextElementSibling;
+    panel.style.display = panel.style.display === "block" ? "none" : "block";
+  });
+}
+</script>
+
 </body>
 </html>
